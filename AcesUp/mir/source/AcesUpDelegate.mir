@@ -1,0 +1,917 @@
+[ @file = "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc"; @line = 1; ]
+import Toybox.Lang;
+[ @file = "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc"; @line = 2; ]
+import Toybox.WatchUi;
+[ @file = "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc"; @line = 3; ]
+import Toybox.Application.Storage;
+[ @file = "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc"; @line = 5; ]
+class AcesUpDelegate extends WatchUi.BehaviorDelegate{
+    [ @file = "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc"; @line = 5; ]
+    <init> {
+    }
+    [ @file = "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc"; @line = 5; ]
+    static
+    <init> {
+    }
+    [ @file = "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc"; @line = 7; ]
+    function initialize() as Void {
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_7_26_start:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 8 8 ]
+        %tmp.2 = getv ? :BehaviorDelegate;
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_7_26_stop:
+    }
+    [ @file = "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc"; @line = 11; ]
+    function onMenu() as Boolean {
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_11_33_start:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 12 8 ]
+        %tmp.1 = getm $.Toybox.WatchUi;
+        %tmp.2 = getv function %tmp.1 :pushView;
+        %tmp.6 = getv ? :AcesUpSettings;
+        %tmp.3 = newc %tmp.6 ();
+        %tmp.10 = getv ? :AcesUpMenuDelegate;
+        %tmp.7 = newc %tmp.10 ();
+        %tmp.11 = getm $.Toybox.WatchUi;
+        %tmp.12 = getv %tmp.11 :SLIDE_UP;
+        invoke %tmp.1 %tmp.2(%tmp.3, %tmp.7, %tmp.12);
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 13 8 ]
+        %tmp.13 = true;
+        ret %tmp.13;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_11_33_stop:
+    }
+    [ @file = "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc"; @line = 16; ]
+    function onTap(clickEvent) as Boolean {
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_16_42_start:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 17 8 ]
+        [ "C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_16_42_start" "C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_16_42_stop" ]
+        %xy.1 = local;
+        %tmp.1 = lgetv %clickEvent;
+        %tmp.2 = getv function %tmp.1 :getCoordinates;
+        %tmp.3 = invoke %tmp.1 %tmp.2();
+        lputv %xy.1 %tmp.3;
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 18 8 ]
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_18_8_if_stmt:
+        %tmp.5 = getv ? :moving;
+        bf %tmp.5 @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_18_8_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_18_8_if_true:
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_18_20_start:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 18 22 ]
+        %tmp.6 = false;
+        ret %tmp.6;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_18_20_stop:
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_18_8_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_18_8_if_end:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 19 8 ]
+        %tmp.8 = getv ? :state;
+        push %tmp.8;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_19_8_switchStmtBegin:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 20 12 ]
+        %tmp.9 = dup %tmp.8;
+        %tmp.10 = 0;
+        %tmp.11 = getv function %tmp.9 :equals;
+        %tmp.12 = invoke %tmp.9 %tmp.11 (%tmp.10);
+        bt %tmp.12 @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_20_12_switchCase;
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 61 12 ]
+        %tmp.13 = dup %tmp.8;
+        %tmp.14 = 1;
+        %tmp.15 = getv function %tmp.13 :equals;
+        %tmp.16 = invoke %tmp.13 %tmp.15 (%tmp.14);
+        bt %tmp.16 @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_61_12_switchCase;
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 110 12 ]
+        %tmp.17 = dup %tmp.8;
+        %tmp.18 = 2;
+        %tmp.19 = getv function %tmp.17 :equals;
+        %tmp.20 = invoke %tmp.17 %tmp.19 (%tmp.18);
+        bt %tmp.20 @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_110_12_switchCase;
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 133 12 ]
+        %tmp.21 = dup %tmp.8;
+        %tmp.22 = 3;
+        %tmp.23 = getv function %tmp.21 :equals;
+        %tmp.24 = invoke %tmp.21 %tmp.23 (%tmp.22);
+        bt %tmp.24 @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_133_12_switchCase;
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_19_8_defaultCodeBegin;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_20_12_switchCase:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 22 16 ]
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_22_16_if_stmt:
+        %tmp.25 = self;
+        %tmp.26 = getv function %tmp.25 :inbox;
+        %tmp.28 = lgetv %xy.1;
+        %tmp.30 = getv ? :themeXY;
+        %tmp.32 = getv ? :themeWH;
+        %tmp.33 = invoke %tmp.25 %tmp.26(%tmp.28, %tmp.30, %tmp.32);
+        bf %tmp.33 @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_22_16_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_22_16_if_true:
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_22_47_start:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 23 20 ]
+        %tmp.34 = getm $.Toybox.Application.Storage;
+        %tmp.35 = getv function %tmp.34 :getValue;
+        %tmp.36 = "theme";
+        %tmp.37 = invoke %tmp.34 %tmp.35(%tmp.36);
+        putv self :theme %tmp.37;
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 24 20 ]
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_24_20_if_stmt:
+        %tmp.39 = getv ? :theme;
+        %tmp.40 = null;
+        %tmp.41 = eq %tmp.39 %tmp.40;
+        bf %tmp.41 @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_24_20_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_24_20_if_true:
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_24_39_start:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 24 41 ]
+        %tmp.42 = 0;
+        putv self :theme %tmp.42;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_24_39_stop:
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_24_20_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_24_20_if_end:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 25 20 ]
+        %tmp.44 = getv ? :theme;
+        %tmp.45 = 1;
+        %tmp.46 = add %tmp.44 %tmp.45;
+        %tmp.48 = getv ? :themes;
+        %tmp.49 = getv function %tmp.48 :size;
+        %tmp.50 = invoke %tmp.48 %tmp.49();
+        %tmp.51 = mod %tmp.46 %tmp.50;
+        putv self :theme %tmp.51;
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 26 20 ]
+        %tmp.52 = getm $.Toybox.Application.Storage;
+        %tmp.53 = getv function %tmp.52 :setValue;
+        %tmp.54 = "theme";
+        %tmp.56 = getv ? :theme;
+        invoke %tmp.52 %tmp.53(%tmp.54, %tmp.56);
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 27 20 ]
+        %tmp.57 = getm $.Toybox.WatchUi;
+        %tmp.58 = getv function %tmp.57 :requestUpdate;
+        invoke %tmp.57 %tmp.58();
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 28 20 ]
+        %tmp.59 = true;
+        ret %tmp.59;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_22_47_stop:
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_22_16_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_22_16_if_end:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 30 16 ]
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_30_16_if_stmt:
+        %tmp.60 = self;
+        %tmp.61 = getv function %tmp.60 :inbox;
+        %tmp.63 = lgetv %xy.1;
+        %tmp.65 = getv ? :suitsXY;
+        %tmp.67 = getv ? :suitsWH;
+        %tmp.68 = invoke %tmp.60 %tmp.61(%tmp.63, %tmp.65, %tmp.67);
+        bf %tmp.68 @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_30_16_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_30_16_if_true:
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_30_47_start:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 31 20 ]
+        %tmp.69 = getm $.Toybox.Application.Storage;
+        %tmp.70 = getv function %tmp.69 :getValue;
+        %tmp.71 = "suitcolor";
+        %tmp.72 = invoke %tmp.69 %tmp.70(%tmp.71);
+        putv self :suitcolor %tmp.72;
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 32 20 ]
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_32_20_if_stmt:
+        %tmp.74 = getv ? :suitcolor;
+        %tmp.75 = null;
+        %tmp.76 = eq %tmp.74 %tmp.75;
+        bf %tmp.76 @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_32_20_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_32_20_if_true:
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_32_43_start:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 32 45 ]
+        %tmp.77 = 0;
+        putv self :suitcolor %tmp.77;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_32_43_stop:
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_32_20_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_32_20_if_end:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 33 20 ]
+        %tmp.79 = getv ? :suitcolor;
+        %tmp.80 = 1;
+        %tmp.81 = add %tmp.79 %tmp.80;
+        %tmp.83 = getv ? :suitcolors;
+        %tmp.84 = getv function %tmp.83 :size;
+        %tmp.85 = invoke %tmp.83 %tmp.84();
+        %tmp.86 = mod %tmp.81 %tmp.85;
+        putv self :suitcolor %tmp.86;
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 34 20 ]
+        %tmp.87 = getm $.Toybox.Application.Storage;
+        %tmp.88 = getv function %tmp.87 :setValue;
+        %tmp.89 = "suitcolor";
+        %tmp.91 = getv ? :suitcolor;
+        invoke %tmp.87 %tmp.88(%tmp.89, %tmp.91);
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 35 20 ]
+        %tmp.92 = getm $.Toybox.WatchUi;
+        %tmp.93 = getv function %tmp.92 :requestUpdate;
+        invoke %tmp.92 %tmp.93();
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 36 20 ]
+        %tmp.94 = true;
+        ret %tmp.94;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_30_47_stop:
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_30_16_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_30_16_if_end:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 38 16 ]
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_38_16_if_stmt:
+        %tmp.95 = self;
+        %tmp.96 = getv function %tmp.95 :inbox;
+        %tmp.98 = lgetv %xy.1;
+        %tmp.100 = getv ? :bgXY;
+        %tmp.102 = getv ? :bgWH;
+        %tmp.103 = invoke %tmp.95 %tmp.96(%tmp.98, %tmp.100, %tmp.102);
+        bf %tmp.103 @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_38_16_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_38_16_if_true:
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_38_41_start:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 39 20 ]
+        %tmp.104 = getm $.Toybox.Application.Storage;
+        %tmp.105 = getv function %tmp.104 :getValue;
+        %tmp.106 = "background";
+        %tmp.107 = invoke %tmp.104 %tmp.105(%tmp.106);
+        putv self :background %tmp.107;
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 40 20 ]
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_40_20_if_stmt:
+        %tmp.109 = getv ? :background;
+        %tmp.110 = null;
+        %tmp.111 = eq %tmp.109 %tmp.110;
+        bf %tmp.111 @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_40_20_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_40_20_if_true:
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_40_44_start:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 40 46 ]
+        %tmp.112 = 0;
+        putv self :background %tmp.112;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_40_44_stop:
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_40_20_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_40_20_if_end:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 41 20 ]
+        %tmp.114 = getv ? :background;
+        %tmp.115 = 1;
+        %tmp.116 = add %tmp.114 %tmp.115;
+        %tmp.118 = getv ? :backgrounds;
+        %tmp.119 = getv function %tmp.118 :size;
+        %tmp.120 = invoke %tmp.118 %tmp.119();
+        %tmp.121 = mod %tmp.116 %tmp.120;
+        putv self :background %tmp.121;
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 42 20 ]
+        %tmp.122 = getm $.Toybox.Application.Storage;
+        %tmp.123 = getv function %tmp.122 :setValue;
+        %tmp.124 = "background";
+        %tmp.126 = getv ? :background;
+        invoke %tmp.122 %tmp.123(%tmp.124, %tmp.126);
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 43 20 ]
+        %tmp.127 = getm $.Toybox.WatchUi;
+        %tmp.128 = getv function %tmp.127 :requestUpdate;
+        invoke %tmp.127 %tmp.128();
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 44 20 ]
+        %tmp.129 = true;
+        ret %tmp.129;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_38_41_stop:
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_38_16_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_38_16_if_end:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 46 16 ]
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_46_16_if_stmt:
+        %tmp.130 = self;
+        %tmp.131 = getv function %tmp.130 :inbox;
+        %tmp.133 = lgetv %xy.1;
+        %tmp.135 = getv ? :wildsXY;
+        %tmp.137 = getv ? :wildsWH;
+        %tmp.138 = invoke %tmp.130 %tmp.131(%tmp.133, %tmp.135, %tmp.137);
+        bf %tmp.138 @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_46_16_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_46_16_if_true:
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_46_47_start:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 47 20 ]
+        %tmp.140 = getv ? :wilds;
+        %tmp.141 = 1;
+        %tmp.142 = add %tmp.140 %tmp.141;
+        %tmp.143 = 4;
+        %tmp.144 = mod %tmp.142 %tmp.143;
+        putv self :wilds %tmp.144;
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 48 20 ]
+        %tmp.145 = self;
+        %tmp.146 = getv function %tmp.145 :savegame;
+        %tmp.147 = false;
+        invoke %tmp.145 %tmp.146(%tmp.147);
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 49 20 ]
+        %tmp.148 = getm $.Toybox.WatchUi;
+        %tmp.149 = getv function %tmp.148 :requestUpdate;
+        invoke %tmp.148 %tmp.149();
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 50 20 ]
+        %tmp.150 = true;
+        ret %tmp.150;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_46_47_stop:
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_46_16_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_46_16_if_end:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 52 16 ]
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_52_16_if_stmt:
+        %tmp.151 = self;
+        %tmp.152 = getv function %tmp.151 :inbox;
+        %tmp.154 = lgetv %xy.1;
+        %tmp.156 = getv ? :startXY;
+        %tmp.158 = getv ? :startWH;
+        %tmp.159 = invoke %tmp.151 %tmp.152(%tmp.154, %tmp.156, %tmp.158);
+        bf %tmp.159 @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_52_16_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_52_16_if_true:
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_52_47_start:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 53 20 ]
+        %tmp.160 = 1;
+        putv self :state %tmp.160;
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 54 20 ]
+        %tmp.161 = true;
+        putv self :juststarted %tmp.161;
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 55 20 ]
+        %tmp.162 = self;
+        %tmp.163 = getv function %tmp.162 :deal;
+        invoke %tmp.162 %tmp.163();
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 56 20 ]
+        %tmp.164 = self;
+        %tmp.165 = getv function %tmp.164 :savegame;
+        %tmp.166 = false;
+        invoke %tmp.164 %tmp.165(%tmp.166);
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 57 20 ]
+        %tmp.167 = getm $.Toybox.WatchUi;
+        %tmp.168 = getv function %tmp.167 :requestUpdate;
+        invoke %tmp.167 %tmp.168();
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 58 20 ]
+        %tmp.169 = true;
+        ret %tmp.169;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_52_47_stop:
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_52_16_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_52_16_if_end:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 60 16 ]
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_19_8_switchStmtEnd;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_61_12_switchCase:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 63 16 ]
+        for @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_63_16_for_test @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_63_16_for_incr @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_63_16_for_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_63_16_for_init:
+        [ "C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_63_16_for_begin" "C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_63_16_for_end" ]
+        %i.2 = local;
+        %tmp.170 = 0;
+        lputv %i.2 %tmp.170;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_63_16_for_test:
+        %tmp.172 = lgetv %i.2;
+        %tmp.173 = 4;
+        %tmp.174 = lt %tmp.172 %tmp.173;
+        bf %tmp.174 @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_63_16_for_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_63_16_for_begin:
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_63_38_start:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 64 20 ]
+        %tmp.175 = self;
+        %tmp.176 = getv function %tmp.175 :calcoverlap;
+        %tmp.178 = lgetv %i.2;
+        invoke %tmp.175 %tmp.176(%tmp.178);
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 65 20 ]
+        %tmp.180 = getv ? :stack;
+        %tmp.182 = lgetv %i.2;
+        %tmp.183 = agetv %tmp.180 %tmp.182;
+        %tmp.184 = getv function %tmp.183 :size;
+        %tmp.185 = invoke %tmp.183 %tmp.184();
+        putv self :tmp %tmp.185;
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 66 20 ]
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_66_20_if_stmt:
+        %tmp.187 = getv ? :tmp;
+        %tmp.188 = 0;
+        %tmp.189 = gt %tmp.187 %tmp.188;
+        bf %tmp.189 @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_66_20_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_66_20_if_true:
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_66_33_start:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 67 24 ]
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_67_24_if_stmt:
+        %tmp.190 = self;
+        %tmp.191 = getv function %tmp.190 :inbox;
+        %tmp.193 = lgetv %xy.1;
+        %tmp.194 = newa 2;
+        %tmp.196 = getv ? :stackXY;
+        %tmp.198 = lgetv %i.2;
+        %tmp.199 = agetv %tmp.196 %tmp.198;
+        %tmp.200 = 0;
+        %tmp.201 = agetv %tmp.199 %tmp.200;
+        %tmp.202 = dup %tmp.194;
+        %tmp.203 = aputv %tmp.202 0 %tmp.201;
+        %tmp.205 = getv ? :stackXY;
+        %tmp.207 = lgetv %i.2;
+        %tmp.208 = agetv %tmp.205 %tmp.207;
+        %tmp.209 = 1;
+        %tmp.210 = agetv %tmp.208 %tmp.209;
+        %tmp.212 = getv ? :tmp;
+        %tmp.213 = 1;
+        %tmp.214 = sub %tmp.212 %tmp.213;
+        %tmp.216 = getv ? :overlap;
+        %tmp.217 = mul %tmp.214 %tmp.216;
+        %tmp.218 = add %tmp.210 %tmp.217;
+        %tmp.219 = dup %tmp.203;
+        %tmp.220 = aputv %tmp.219 1 %tmp.218;
+        %tmp.222 = getv ? :cardWH;
+        %tmp.223 = invoke %tmp.190 %tmp.191(%tmp.193, %tmp.220, %tmp.222);
+        bf %tmp.223 @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_67_24_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_67_24_if_true:
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_67_92_start:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 68 28 ]
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_68_28_if_stmt:
+        %tmp.225 = getv ? :wilding;
+        bf %tmp.225 @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_68_28_if_false;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_68_28_if_true:
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_68_41_start:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 69 32 ]
+        %tmp.226 = self;
+        %tmp.227 = getv function %tmp.226 :playwild;
+        %tmp.229 = lgetv %i.2;
+        %tmp.230 = invoke %tmp.226 %tmp.227(%tmp.229);
+        putv self :tmp %tmp.230;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_68_41_stop:
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_68_28_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_68_28_if_false:
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_70_35_start:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 71 32 ]
+        %tmp.231 = self;
+        %tmp.232 = getv function %tmp.231 :play;
+        %tmp.234 = lgetv %i.2;
+        %tmp.235 = invoke %tmp.231 %tmp.232(%tmp.234);
+        putv self :tmp %tmp.235;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_70_35_stop:
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_68_28_if_end:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 73 28 ]
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_73_28_if_stmt:
+        %tmp.237 = getv ? :tmp;
+        bf %tmp.237 @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_73_28_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_73_28_if_true:
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_73_37_start:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 74 32 ]
+        %tmp.238 = self;
+        %tmp.239 = getv function %tmp.238 :savegame;
+        %tmp.240 = false;
+        invoke %tmp.238 %tmp.239(%tmp.240);
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 75 32 ]
+        %tmp.241 = getm $.Toybox.WatchUi;
+        %tmp.242 = getv function %tmp.241 :requestUpdate;
+        invoke %tmp.241 %tmp.242();
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 76 32 ]
+        %tmp.243 = true;
+        ret %tmp.243;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_73_37_stop:
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_73_28_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_73_28_if_end:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 78 28 ]
+        %tmp.244 = false;
+        ret %tmp.244;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_67_92_stop:
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_67_24_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_67_24_if_end:
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_66_33_stop:
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_66_20_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_66_20_if_end:
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_63_38_stop:
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_63_16_for_incr:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 63 ]
+        %tmp.247 = lgetv %i.2;
+        %tmp.248 = add %tmp.247 1;
+        lputv %i.2 %tmp.248;
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_63_16_for_test;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_63_16_for_end:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 82 16 ]
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_82_16_if_stmt:
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_82_20_begin:
+        %tmp.249 = self;
+        %tmp.250 = getv function %tmp.249 :inbox;
+        %tmp.252 = lgetv %xy.1;
+        %tmp.254 = getv ? :deckXY;
+        %tmp.256 = getv ? :cardWH;
+        %tmp.257 = invoke %tmp.249 %tmp.250(%tmp.252, %tmp.254, %tmp.256);
+        %tmp.258 = dup %tmp.257;
+        bf %tmp.258 @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_82_48_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_82_48_true:
+        %tmp.260 = getv ? :deck;
+        %tmp.261 = getv function %tmp.260 :size;
+        %tmp.262 = invoke %tmp.260 %tmp.261();
+        %tmp.263 = 0;
+        %tmp.264 = gt %tmp.262 %tmp.263;
+        %tmp.265 = and %tmp.257 %tmp.264;
+        push %tmp.265;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_82_48_end:
+        %tmp.266 = phi [%tmp.258 @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_82_20_begin] [%tmp.265 @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_82_48_true] [%tmp.266 @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_82_48_end];
+        bf %tmp.266 @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_82_16_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_82_16_if_true:
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_82_65_start:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 83 20 ]
+        %tmp.267 = self;
+        %tmp.268 = getv function %tmp.267 :deal;
+        invoke %tmp.267 %tmp.268();
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 84 20 ]
+        %tmp.269 = getm $.Toybox.WatchUi;
+        %tmp.270 = getv function %tmp.269 :requestUpdate;
+        invoke %tmp.269 %tmp.270();
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 85 20 ]
+        %tmp.271 = self;
+        %tmp.272 = getv function %tmp.271 :savegame;
+        %tmp.273 = false;
+        invoke %tmp.271 %tmp.272(%tmp.273);
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 86 20 ]
+        %tmp.274 = true;
+        ret %tmp.274;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_82_65_stop:
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_82_16_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_82_16_if_end:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 88 16 ]
+        %tmp.276 = getv ? :wild;
+        %tmp.277 = getv function %tmp.276 :size;
+        %tmp.278 = invoke %tmp.276 %tmp.277();
+        putv self :tmp %tmp.278;
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 89 16 ]
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_89_16_if_stmt:
+        %tmp.280 = getv ? :tmp;
+        %tmp.281 = 0;
+        %tmp.282 = gt %tmp.280 %tmp.281;
+        bf %tmp.282 @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_89_16_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_89_16_if_true:
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_89_29_start:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 90 20 ]
+        %tmp.283 = self;
+        %tmp.284 = getv function %tmp.283 :calcoverlap;
+        %tmp.285 = -1;
+        invoke %tmp.283 %tmp.284(%tmp.285);
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 91 20 ]
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_91_20_if_stmt:
+        %tmp.286 = self;
+        %tmp.287 = getv function %tmp.286 :inbox;
+        %tmp.289 = lgetv %xy.1;
+        %tmp.290 = newa 2;
+        %tmp.292 = getv ? :wildXY;
+        %tmp.293 = 0;
+        %tmp.294 = agetv %tmp.292 %tmp.293;
+        %tmp.295 = dup %tmp.290;
+        %tmp.296 = aputv %tmp.295 0 %tmp.294;
+        %tmp.298 = getv ? :wildXY;
+        %tmp.299 = 1;
+        %tmp.300 = agetv %tmp.298 %tmp.299;
+        %tmp.302 = getv ? :tmp;
+        %tmp.303 = 1;
+        %tmp.304 = sub %tmp.302 %tmp.303;
+        %tmp.306 = getv ? :overlap;
+        %tmp.307 = mul %tmp.304 %tmp.306;
+        %tmp.308 = add %tmp.300 %tmp.307;
+        %tmp.309 = dup %tmp.296;
+        %tmp.310 = aputv %tmp.309 1 %tmp.308;
+        %tmp.312 = getv ? :cardWH;
+        %tmp.313 = invoke %tmp.286 %tmp.287(%tmp.289, %tmp.310, %tmp.312);
+        bf %tmp.313 @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_91_20_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_91_20_if_true:
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_91_80_start:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 92 24 ]
+        %tmp.315 = getv ? :wilding;
+        %tmp.316 = not %tmp.315;
+        putv self :wilding %tmp.316;
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 93 24 ]
+        %tmp.317 = getm $.Toybox.WatchUi;
+        %tmp.318 = getv function %tmp.317 :requestUpdate;
+        invoke %tmp.317 %tmp.318();
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 94 24 ]
+        %tmp.319 = true;
+        ret %tmp.319;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_91_80_stop:
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_91_20_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_91_20_if_end:
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_89_29_stop:
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_89_16_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_89_16_if_end:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 97 16 ]
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_97_16_if_stmt:
+        %tmp.320 = self;
+        %tmp.321 = getv function %tmp.320 :inbox;
+        %tmp.323 = lgetv %xy.1;
+        %tmp.325 = getv ? :undoXY;
+        %tmp.327 = getv ? :undoWH;
+        %tmp.328 = invoke %tmp.320 %tmp.321(%tmp.323, %tmp.325, %tmp.327);
+        bf %tmp.328 @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_97_16_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_97_16_if_true:
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_97_45_start:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 98 20 ]
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_98_20_if_stmt:
+        %tmp.329 = self;
+        %tmp.330 = getv function %tmp.329 :undo;
+        %tmp.331 = invoke %tmp.329 %tmp.330();
+        bf %tmp.331 @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_98_20_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_98_20_if_true:
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_98_32_start:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 99 24 ]
+        %tmp.332 = getm $.Toybox.WatchUi;
+        %tmp.333 = getv function %tmp.332 :requestUpdate;
+        invoke %tmp.332 %tmp.333();
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 100 24 ]
+        %tmp.334 = true;
+        ret %tmp.334;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_98_32_stop:
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_98_20_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_98_20_if_end:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 102 20 ]
+        %tmp.335 = false;
+        ret %tmp.335;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_97_45_stop:
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_97_16_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_97_16_if_end:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 104 16 ]
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_104_16_if_stmt:
+        %tmp.336 = self;
+        %tmp.337 = getv function %tmp.336 :inbox;
+        %tmp.339 = lgetv %xy.1;
+        %tmp.341 = getv ? :newXY;
+        %tmp.343 = getv ? :newWH;
+        %tmp.344 = invoke %tmp.336 %tmp.337(%tmp.339, %tmp.341, %tmp.343);
+        bf %tmp.344 @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_104_16_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_104_16_if_true:
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_104_43_start:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 105 20 ]
+        %tmp.345 = self;
+        %tmp.346 = getv function %tmp.345 :newgame;
+        invoke %tmp.345 %tmp.346();
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 106 20 ]
+        %tmp.347 = getm $.Toybox.WatchUi;
+        %tmp.348 = getv function %tmp.347 :requestUpdate;
+        invoke %tmp.347 %tmp.348();
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 107 20 ]
+        %tmp.349 = true;
+        ret %tmp.349;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_104_43_stop:
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_104_16_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_104_16_if_end:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 109 16 ]
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_19_8_switchStmtEnd;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_110_12_switchCase:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 112 16 ]
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_112_16_if_stmt:
+        %tmp.350 = self;
+        %tmp.351 = getv function %tmp.350 :inbox;
+        %tmp.353 = lgetv %xy.1;
+        %tmp.355 = getv ? :undoXY;
+        %tmp.357 = getv ? :undoWH;
+        %tmp.358 = invoke %tmp.350 %tmp.351(%tmp.353, %tmp.355, %tmp.357);
+        bf %tmp.358 @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_112_16_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_112_16_if_true:
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_112_45_start:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 113 20 ]
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_113_20_if_stmt:
+        %tmp.359 = self;
+        %tmp.360 = getv function %tmp.359 :undo;
+        %tmp.361 = invoke %tmp.359 %tmp.360();
+        bf %tmp.361 @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_113_20_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_113_20_if_true:
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_113_32_start:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 114 24 ]
+        %tmp.362 = getm $.Toybox.WatchUi;
+        %tmp.363 = getv function %tmp.362 :requestUpdate;
+        invoke %tmp.362 %tmp.363();
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 115 24 ]
+        %tmp.364 = true;
+        ret %tmp.364;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_113_32_stop:
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_113_20_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_113_20_if_end:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 117 20 ]
+        %tmp.365 = false;
+        ret %tmp.365;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_112_45_stop:
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_112_16_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_112_16_if_end:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 119 16 ]
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_119_16_if_stmt:
+        %tmp.366 = self;
+        %tmp.367 = getv function %tmp.366 :inbox;
+        %tmp.369 = lgetv %xy.1;
+        %tmp.371 = getv ? :undoXY;
+        %tmp.373 = getv ? :undoWH;
+        %tmp.374 = invoke %tmp.366 %tmp.367(%tmp.369, %tmp.371, %tmp.373);
+        bf %tmp.374 @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_119_16_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_119_16_if_true:
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_119_45_start:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 120 20 ]
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_120_20_if_stmt:
+        %tmp.375 = self;
+        %tmp.376 = getv function %tmp.375 :undo;
+        %tmp.377 = invoke %tmp.375 %tmp.376();
+        bf %tmp.377 @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_120_20_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_120_20_if_true:
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_120_32_start:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 121 24 ]
+        %tmp.378 = getm $.Toybox.WatchUi;
+        %tmp.379 = getv function %tmp.378 :requestUpdate;
+        invoke %tmp.378 %tmp.379();
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 122 24 ]
+        %tmp.380 = true;
+        ret %tmp.380;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_120_32_stop:
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_120_20_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_120_20_if_end:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 124 20 ]
+        %tmp.381 = false;
+        ret %tmp.381;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_119_45_stop:
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_119_16_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_119_16_if_end:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 126 16 ]
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_126_16_if_stmt:
+        %tmp.382 = self;
+        %tmp.383 = getv function %tmp.382 :inbox;
+        %tmp.385 = lgetv %xy.1;
+        %tmp.387 = getv ? :newXY;
+        %tmp.389 = getv ? :newWH;
+        %tmp.390 = invoke %tmp.382 %tmp.383(%tmp.385, %tmp.387, %tmp.389);
+        bf %tmp.390 @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_126_16_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_126_16_if_true:
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_126_43_start:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 127 20 ]
+        %tmp.391 = self;
+        %tmp.392 = getv function %tmp.391 :savestats;
+        %tmp.393 = -1;
+        invoke %tmp.391 %tmp.392(%tmp.393);
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 128 20 ]
+        %tmp.394 = self;
+        %tmp.395 = getv function %tmp.394 :newgame;
+        invoke %tmp.394 %tmp.395();
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 129 20 ]
+        %tmp.396 = getm $.Toybox.WatchUi;
+        %tmp.397 = getv function %tmp.396 :requestUpdate;
+        invoke %tmp.396 %tmp.397();
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 130 20 ]
+        %tmp.398 = true;
+        ret %tmp.398;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_126_43_stop:
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_126_16_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_126_16_if_end:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 132 16 ]
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_19_8_switchStmtEnd;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_133_12_switchCase:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 135 16 ]
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_135_16_if_stmt:
+        %tmp.399 = self;
+        %tmp.400 = getv function %tmp.399 :inbox;
+        %tmp.402 = lgetv %xy.1;
+        %tmp.404 = getv ? :undoXY;
+        %tmp.406 = getv ? :undoWH;
+        %tmp.407 = invoke %tmp.399 %tmp.400(%tmp.402, %tmp.404, %tmp.406);
+        bf %tmp.407 @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_135_16_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_135_16_if_true:
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_135_45_start:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 136 20 ]
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_136_20_if_stmt:
+        %tmp.408 = self;
+        %tmp.409 = getv function %tmp.408 :undo;
+        %tmp.410 = invoke %tmp.408 %tmp.409();
+        bf %tmp.410 @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_136_20_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_136_20_if_true:
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_136_32_start:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 137 24 ]
+        %tmp.411 = getm $.Toybox.WatchUi;
+        %tmp.412 = getv function %tmp.411 :requestUpdate;
+        invoke %tmp.411 %tmp.412();
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 138 24 ]
+        %tmp.413 = true;
+        ret %tmp.413;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_136_32_stop:
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_136_20_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_136_20_if_end:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 140 20 ]
+        %tmp.414 = false;
+        ret %tmp.414;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_135_45_stop:
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_135_16_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_135_16_if_end:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 142 16 ]
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_142_16_if_stmt:
+        %tmp.415 = self;
+        %tmp.416 = getv function %tmp.415 :inbox;
+        %tmp.418 = lgetv %xy.1;
+        %tmp.420 = getv ? :startXY;
+        %tmp.422 = getv ? :startWH;
+        %tmp.423 = invoke %tmp.415 %tmp.416(%tmp.418, %tmp.420, %tmp.422);
+        bf %tmp.423 @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_142_16_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_142_16_if_true:
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_142_47_start:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 143 20 ]
+        %tmp.424 = self;
+        %tmp.425 = getv function %tmp.424 :savestats;
+        %tmp.426 = 1;
+        invoke %tmp.424 %tmp.425(%tmp.426);
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 144 20 ]
+        %tmp.427 = self;
+        %tmp.428 = getv function %tmp.427 :newgame;
+        invoke %tmp.427 %tmp.428();
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 145 20 ]
+        %tmp.429 = getm $.Toybox.WatchUi;
+        %tmp.430 = getv function %tmp.429 :requestUpdate;
+        invoke %tmp.429 %tmp.430();
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 146 20 ]
+        %tmp.431 = true;
+        ret %tmp.431;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_142_47_stop:
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_142_16_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_142_16_if_end:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 148 16 ]
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_19_8_switchStmtEnd;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_19_8_defaultCodeBegin:
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_19_8_switchStmtEnd:
+        pop;
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 150 8 ]
+        %tmp.432 = false;
+        ret %tmp.432;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_16_42_stop:
+    }
+    [ @file = "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc"; @line = 157; ]
+    function inbox(point, boxxy, boxwh) as Boolean {
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_157_49_start:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 158 8 ]
+        [ "C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_157_49_start" "C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_157_49_stop" ]
+        %bx.1 = local;
+        %tmp.2 = lgetv %boxxy;
+        %tmp.3 = 0;
+        %tmp.4 = agetv %tmp.2 %tmp.3;
+        %tmp.6 = lgetv %boxwh;
+        %tmp.7 = 0;
+        %tmp.8 = agetv %tmp.6 %tmp.7;
+        %tmp.9 = 2;
+        %tmp.10 = div %tmp.8 %tmp.9;
+        %tmp.11 = sub %tmp.4 %tmp.10;
+        lputv %bx.1 %tmp.11;
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 159 8 ]
+        [ "C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_157_49_start" "C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_157_49_stop" ]
+        %by.2 = local;
+        %tmp.13 = lgetv %boxxy;
+        %tmp.14 = 1;
+        %tmp.15 = agetv %tmp.13 %tmp.14;
+        %tmp.17 = lgetv %boxwh;
+        %tmp.18 = 1;
+        %tmp.19 = agetv %tmp.17 %tmp.18;
+        %tmp.20 = 2;
+        %tmp.21 = div %tmp.19 %tmp.20;
+        %tmp.22 = sub %tmp.15 %tmp.21;
+        lputv %by.2 %tmp.22;
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 160 8 ]
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_160_8_if_stmt:
+        %tmp.24 = lgetv %point;
+        %tmp.25 = 0;
+        %tmp.26 = agetv %tmp.24 %tmp.25;
+        %tmp.28 = lgetv %bx.1;
+        %tmp.29 = lt %tmp.26 %tmp.28;
+        bf %tmp.29 @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_160_8_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_160_8_if_true:
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_160_25_start:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 160 26 ]
+        %tmp.30 = false;
+        ret %tmp.30;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_160_25_stop:
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_160_8_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_160_8_if_end:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 161 8 ]
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_161_8_if_stmt:
+        %tmp.32 = lgetv %point;
+        %tmp.33 = 0;
+        %tmp.34 = agetv %tmp.32 %tmp.33;
+        %tmp.36 = lgetv %bx.1;
+        %tmp.38 = lgetv %boxwh;
+        %tmp.39 = 0;
+        %tmp.40 = agetv %tmp.38 %tmp.39;
+        %tmp.41 = add %tmp.36 %tmp.40;
+        %tmp.42 = gt %tmp.34 %tmp.41;
+        bf %tmp.42 @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_161_8_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_161_8_if_true:
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_161_34_start:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 161 35 ]
+        %tmp.43 = false;
+        ret %tmp.43;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_161_34_stop:
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_161_8_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_161_8_if_end:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 162 8 ]
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_162_8_if_stmt:
+        %tmp.45 = lgetv %point;
+        %tmp.46 = 1;
+        %tmp.47 = agetv %tmp.45 %tmp.46;
+        %tmp.49 = lgetv %by.2;
+        %tmp.50 = lt %tmp.47 %tmp.49;
+        bf %tmp.50 @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_162_8_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_162_8_if_true:
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_162_25_start:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 162 26 ]
+        %tmp.51 = false;
+        ret %tmp.51;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_162_25_stop:
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_162_8_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_162_8_if_end:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 163 8 ]
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_163_8_if_stmt:
+        %tmp.53 = lgetv %point;
+        %tmp.54 = 1;
+        %tmp.55 = agetv %tmp.53 %tmp.54;
+        %tmp.57 = lgetv %by.2;
+        %tmp.59 = lgetv %boxwh;
+        %tmp.60 = 1;
+        %tmp.61 = agetv %tmp.59 %tmp.60;
+        %tmp.62 = add %tmp.57 %tmp.61;
+        %tmp.63 = gt %tmp.55 %tmp.62;
+        bf %tmp.63 @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_163_8_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_163_8_if_true:
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_163_34_start:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 163 35 ]
+        %tmp.64 = false;
+        ret %tmp.64;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_163_34_stop:
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_163_8_if_end;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_163_8_if_end:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc" 164 8 ]
+        %tmp.65 = true;
+        ret %tmp.65;
+C_Garmin_Projects_AcesUp_source_AcesUpDelegate_mc_157_49_stop:
+    }
+}
+[ @file = "C:\Garmin\Projects\AcesUp\source\AcesUpDelegate.mc"; @line = 1; ]
+<init> {
+}

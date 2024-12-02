@@ -1,0 +1,195 @@
+[ @file = "C:\Garmin\Projects\AcesUp\source\AcesUpMenuDelegate.mc"; @line = 1; ]
+import Toybox.Lang;
+[ @file = "C:\Garmin\Projects\AcesUp\source\AcesUpMenuDelegate.mc"; @line = 2; ]
+import Toybox.System;
+[ @file = "C:\Garmin\Projects\AcesUp\source\AcesUpMenuDelegate.mc"; @line = 3; ]
+import Toybox.WatchUi;
+[ @file = "C:\Garmin\Projects\AcesUp\source\AcesUpMenuDelegate.mc"; @line = 4; ]
+import Toybox.Application.Storage;
+[ @file = "C:\Garmin\Projects\AcesUp\source\AcesUpMenuDelegate.mc"; @line = 6; ]
+class AcesUpMenuDelegate extends WatchUi.MenuInputDelegate{
+    [ @file = "C:\Garmin\Projects\AcesUp\source\AcesUpMenuDelegate.mc"; @line = 6; ]
+    <init> {
+    }
+    [ @file = "C:\Garmin\Projects\AcesUp\source\AcesUpMenuDelegate.mc"; @line = 6; ]
+    static
+    <init> {
+    }
+    [ @file = "C:\Garmin\Projects\AcesUp\source\AcesUpMenuDelegate.mc"; @line = 8; ]
+    function initialize() as Void {
+C_Garmin_Projects_AcesUp_source_AcesUpMenuDelegate_mc_8_26_start:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpMenuDelegate.mc" 9 8 ]
+        %tmp.2 = getv ? :MenuInputDelegate;
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+C_Garmin_Projects_AcesUp_source_AcesUpMenuDelegate_mc_8_26_stop:
+    }
+    [ @file = "C:\Garmin\Projects\AcesUp\source\AcesUpMenuDelegate.mc"; @line = 12; ]
+    public
+    function onSelect(item as MenuItem) {
+C_Garmin_Projects_AcesUp_source_AcesUpMenuDelegate_mc_12_47_start:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpMenuDelegate.mc" 13 8 ]
+        %tmp.1 = lgetv %item;
+        %tmp.2 = getv function %tmp.1 :getId;
+        %tmp.3 = invoke %tmp.1 %tmp.2();
+        push %tmp.3;
+C_Garmin_Projects_AcesUp_source_AcesUpMenuDelegate_mc_13_8_switchStmtBegin:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpMenuDelegate.mc" 14 12 ]
+        %tmp.4 = dup %tmp.3;
+        %tmp.5 = "theme";
+        %tmp.6 = getv function %tmp.4 :equals;
+        %tmp.7 = invoke %tmp.4 %tmp.6 (%tmp.5);
+        bt %tmp.7 @C_Garmin_Projects_AcesUp_source_AcesUpMenuDelegate_mc_14_12_switchCase;
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpMenuDelegate.mc" 19 12 ]
+        %tmp.8 = dup %tmp.3;
+        %tmp.9 = "background";
+        %tmp.10 = getv function %tmp.8 :equals;
+        %tmp.11 = invoke %tmp.8 %tmp.10 (%tmp.9);
+        bt %tmp.11 @C_Garmin_Projects_AcesUp_source_AcesUpMenuDelegate_mc_19_12_switchCase;
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpMenuDelegate.mc" 24 12 ]
+        %tmp.12 = dup %tmp.3;
+        %tmp.13 = "suitcolor";
+        %tmp.14 = getv function %tmp.12 :equals;
+        %tmp.15 = invoke %tmp.12 %tmp.14 (%tmp.13);
+        bt %tmp.15 @C_Garmin_Projects_AcesUp_source_AcesUpMenuDelegate_mc_24_12_switchCase;
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpMenuDelegate.mc" 29 12 ]
+        %tmp.16 = dup %tmp.3;
+        %tmp.17 = "animation";
+        %tmp.18 = getv function %tmp.16 :equals;
+        %tmp.19 = invoke %tmp.16 %tmp.18 (%tmp.17);
+        bt %tmp.19 @C_Garmin_Projects_AcesUp_source_AcesUpMenuDelegate_mc_29_12_switchCase;
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpMenuDelegate.mc" 34 12 ]
+        %tmp.20 = dup %tmp.3;
+        %tmp.21 = "stats";
+        %tmp.22 = getv function %tmp.20 :equals;
+        %tmp.23 = invoke %tmp.20 %tmp.22 (%tmp.21);
+        bt %tmp.23 @C_Garmin_Projects_AcesUp_source_AcesUpMenuDelegate_mc_34_12_switchCase;
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpMenuDelegate_mc_13_8_defaultCodeBegin;
+C_Garmin_Projects_AcesUp_source_AcesUpMenuDelegate_mc_14_12_switchCase:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpMenuDelegate.mc" 15 16 ]
+        %tmp.25 = getv ? :theme;
+        %tmp.26 = 1;
+        %tmp.27 = add %tmp.25 %tmp.26;
+        %tmp.29 = getv ? :themes;
+        %tmp.30 = getv function %tmp.29 :size;
+        %tmp.31 = invoke %tmp.29 %tmp.30();
+        %tmp.32 = mod %tmp.27 %tmp.31;
+        putv self :theme %tmp.32;
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpMenuDelegate.mc" 16 16 ]
+        %tmp.33 = getm $.Toybox.Application.Storage;
+        %tmp.34 = getv function %tmp.33 :setValue;
+        %tmp.35 = "theme";
+        %tmp.37 = getv ? :theme;
+        invoke %tmp.33 %tmp.34(%tmp.35, %tmp.37);
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpMenuDelegate.mc" 17 16 ]
+        %tmp.38 = lgetv %item;
+        %tmp.39 = getv function %tmp.38 :setSubLabel;
+        %tmp.41 = getv ? :themes;
+        %tmp.43 = getv ? :theme;
+        %tmp.44 = agetv %tmp.41 %tmp.43;
+        invoke %tmp.38 %tmp.39(%tmp.44);
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpMenuDelegate.mc" 18 16 ]
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpMenuDelegate_mc_13_8_switchStmtEnd;
+C_Garmin_Projects_AcesUp_source_AcesUpMenuDelegate_mc_19_12_switchCase:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpMenuDelegate.mc" 20 16 ]
+        %tmp.46 = getv ? :background;
+        %tmp.47 = 1;
+        %tmp.48 = add %tmp.46 %tmp.47;
+        %tmp.50 = getv ? :backgrounds;
+        %tmp.51 = getv function %tmp.50 :size;
+        %tmp.52 = invoke %tmp.50 %tmp.51();
+        %tmp.53 = mod %tmp.48 %tmp.52;
+        putv self :background %tmp.53;
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpMenuDelegate.mc" 21 16 ]
+        %tmp.54 = getm $.Toybox.Application.Storage;
+        %tmp.55 = getv function %tmp.54 :setValue;
+        %tmp.56 = "background";
+        %tmp.58 = getv ? :background;
+        invoke %tmp.54 %tmp.55(%tmp.56, %tmp.58);
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpMenuDelegate.mc" 22 16 ]
+        %tmp.59 = lgetv %item;
+        %tmp.60 = getv function %tmp.59 :setSubLabel;
+        %tmp.62 = getv ? :backgrounds;
+        %tmp.64 = getv ? :background;
+        %tmp.65 = agetv %tmp.62 %tmp.64;
+        invoke %tmp.59 %tmp.60(%tmp.65);
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpMenuDelegate.mc" 23 16 ]
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpMenuDelegate_mc_13_8_switchStmtEnd;
+C_Garmin_Projects_AcesUp_source_AcesUpMenuDelegate_mc_24_12_switchCase:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpMenuDelegate.mc" 25 16 ]
+        %tmp.67 = getv ? :suitcolor;
+        %tmp.68 = 1;
+        %tmp.69 = add %tmp.67 %tmp.68;
+        %tmp.71 = getv ? :suitcolors;
+        %tmp.72 = getv function %tmp.71 :size;
+        %tmp.73 = invoke %tmp.71 %tmp.72();
+        %tmp.74 = mod %tmp.69 %tmp.73;
+        putv self :suitcolor %tmp.74;
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpMenuDelegate.mc" 26 16 ]
+        %tmp.75 = getm $.Toybox.Application.Storage;
+        %tmp.76 = getv function %tmp.75 :setValue;
+        %tmp.77 = "suitcolor";
+        %tmp.79 = getv ? :suitcolor;
+        invoke %tmp.75 %tmp.76(%tmp.77, %tmp.79);
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpMenuDelegate.mc" 27 16 ]
+        %tmp.80 = lgetv %item;
+        %tmp.81 = getv function %tmp.80 :setSubLabel;
+        %tmp.83 = getv ? :suitcolors;
+        %tmp.85 = getv ? :suitcolor;
+        %tmp.86 = agetv %tmp.83 %tmp.85;
+        invoke %tmp.80 %tmp.81(%tmp.86);
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpMenuDelegate.mc" 28 16 ]
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpMenuDelegate_mc_13_8_switchStmtEnd;
+C_Garmin_Projects_AcesUp_source_AcesUpMenuDelegate_mc_29_12_switchCase:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpMenuDelegate.mc" 30 16 ]
+        %tmp.88 = getv ? :animation;
+        %tmp.89 = 1;
+        %tmp.90 = add %tmp.88 %tmp.89;
+        %tmp.92 = getv ? :animations;
+        %tmp.93 = getv function %tmp.92 :size;
+        %tmp.94 = invoke %tmp.92 %tmp.93();
+        %tmp.95 = mod %tmp.90 %tmp.94;
+        putv self :animation %tmp.95;
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpMenuDelegate.mc" 31 16 ]
+        %tmp.96 = getm $.Toybox.Application.Storage;
+        %tmp.97 = getv function %tmp.96 :setValue;
+        %tmp.98 = "animation";
+        %tmp.100 = getv ? :animation;
+        invoke %tmp.96 %tmp.97(%tmp.98, %tmp.100);
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpMenuDelegate.mc" 32 16 ]
+        %tmp.101 = lgetv %item;
+        %tmp.102 = getv function %tmp.101 :setSubLabel;
+        %tmp.104 = getv ? :animations;
+        %tmp.106 = getv ? :animation;
+        %tmp.107 = agetv %tmp.104 %tmp.106;
+        invoke %tmp.101 %tmp.102(%tmp.107);
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpMenuDelegate.mc" 33 16 ]
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpMenuDelegate_mc_13_8_switchStmtEnd;
+C_Garmin_Projects_AcesUp_source_AcesUpMenuDelegate_mc_34_12_switchCase:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpMenuDelegate.mc" 35 16 ]
+        %tmp.108 = self;
+        %tmp.109 = getv function %tmp.108 :showstats;
+        invoke %tmp.108 %tmp.109();
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpMenuDelegate.mc" 36 16 ]
+        goto @C_Garmin_Projects_AcesUp_source_AcesUpMenuDelegate_mc_13_8_switchStmtEnd;
+C_Garmin_Projects_AcesUp_source_AcesUpMenuDelegate_mc_13_8_defaultCodeBegin:
+C_Garmin_Projects_AcesUp_source_AcesUpMenuDelegate_mc_13_8_switchStmtEnd:
+        pop;
+C_Garmin_Projects_AcesUp_source_AcesUpMenuDelegate_mc_12_47_stop:
+    }
+    [ @file = "C:\Garmin\Projects\AcesUp\source\AcesUpMenuDelegate.mc"; @line = 40; ]
+    public
+    function onBack() {
+C_Garmin_Projects_AcesUp_source_AcesUpMenuDelegate_mc_40_29_start:
+[ "C:\Garmin\Projects\AcesUp\source\AcesUpMenuDelegate.mc" 41 8 ]
+        %tmp.1 = getm $.Toybox.WatchUi;
+        %tmp.2 = getv function %tmp.1 :popView;
+        %tmp.3 = getm $.Toybox.WatchUi;
+        %tmp.4 = getv %tmp.3 :SLIDE_DOWN;
+        invoke %tmp.1 %tmp.2(%tmp.4);
+C_Garmin_Projects_AcesUp_source_AcesUpMenuDelegate_mc_40_29_stop:
+    }
+}
+[ @file = "C:\Garmin\Projects\AcesUp\source\AcesUpMenuDelegate.mc"; @line = 1; ]
+<init> {
+}
